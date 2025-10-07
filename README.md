@@ -8,6 +8,8 @@
 
 A powerful **Retrieval-Augmented Generation (RAG)** chatbot that transforms any PDF into instant AI knowledge. Built with Next.js, Google Gemini, and PostgreSQL with pgvector for semantic search.
 
+**🌐 Live Demo:** [https://rag-chatbot-teal.vercel.app/](https://rag-chatbot-teal.vercel.app/)
+
 ![RAG Chatbot Banner](https://via.placeholder.com/1200x400/FFEB3B/000000?text=RAG+Chatbot+-+Turn+PDFs+into+AI+Knowledge)
 
 ## ✨ Features
