@@ -1,10 +1,10 @@
 import {embed, embedMany} from "ai";
-import {openai} from "@ai-sdk/openai"
+import {google} from "@ai-sdk/google"
 
 export async function generateEmbedding(text:string){
     const input= text.replace("\n"," ");
     const{embedding}=await embed({
-        model: openai.textEmbeddingModel("text-embedding-3-small"),
+        model: google.textEmbeddingModel("text-embedding-004"),
         value: input,
     });
     return embedding;
@@ -13,7 +13,7 @@ export async function generateEmbedding(text:string){
 export async function generateEmbeddings(texts:string[]){
     const inputs=texts.map((text)=>text.replace("\n"," "))
     const{embeddings}=await embedMany({
-        model: openai.textEmbeddingModel("text-embedding-3-small"),
+        model: google.textEmbeddingModel("text-embedding-004"),
         values: inputs,
     });
 

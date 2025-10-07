@@ -1,18 +1,17 @@
 "use server";
 
-import {pdf} from "pdf-parse";
+import pdfParse from "pdf-parse-fork";
 import {db} from "@/lib/db-config"
 import { documents } from "@/lib/db-schema";
 import { generateEmbeddings } from "@/lib/embeddings";
 import { chunkContent } from "@/lib/chunking";
-import { success } from "zod/v4";
 
 export async function processPdfFile(formData: FormData){
     try{
         const file= formData.get("pdf") as File;
         const bytes= await file.arrayBuffer();
         const buffer= Buffer.from(bytes)
-        const data=await pdf(buffer)
+        const data = await pdfParse(buffer)
 
         if(!data.text|| data.text.trim().length===0){
             return {

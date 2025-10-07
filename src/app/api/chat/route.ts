@@ -10,7 +10,7 @@ import {
 } from "ai";
 import { z } from "zod";
 import { searchDocuments } from "@/lib/search";
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 
 const tools = {
   searchKnowledgeBase: tool({
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json();
     const result = streamText({
-      model: openai("gpt-4.1-mini"),
+      model: google("gemini-2.0-flash-exp"),
       messages: convertToModelMessages(messages),
       tools,
       system: `You are a helpful assistant with access to a knowledge base. 
